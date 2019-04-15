@@ -11,9 +11,9 @@ router.post('/',(req, res, next)=>{
     provider.valid_request(req, (err, isValid) => {
         if(isValid){            
             if(provider.body.roles.includes('Instructor') ){
-                res.redirect(301, '/teacher');
+                res.redirect(301, '/homeTeacher');
             }else{
-                res.redirect(301, '/student');
+                res.redirect(301, '/homeStudent');
             }            
         }else{
             next(err);

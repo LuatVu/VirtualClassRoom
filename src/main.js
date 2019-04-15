@@ -38,3 +38,9 @@ connection_3.sdpConstraints.mandatory = {
     OfferToReceiveAudio: true,
     OfferToReceiveVideo: true
 };
+
+
+
+// AngularJS Module
+var mainGUI = angular.module("mainGUI",['ngRoute']);
+
