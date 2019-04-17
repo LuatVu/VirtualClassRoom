@@ -1,24 +1,51 @@
 <!Doctype html>
 <html>
     <head>
-        <link rel="stylesheet" href="bootstrap.min.css">        
-    </head>
-    <body>        
-        
-        
-        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap.min.css">   
+        <link rel="stylesheet" href="css/getHTMLMediaElement.css">        
         <script src="jquery.min.js"></script>                
         <script src="popper.min.js"></script>
-        <script src="bootstrap.min.js"></script>
+        <script src="bootstrap.min.js"></script>                        
+    </head>
+    <body>        
+        <header><% include header%></header>
+        <div><% include home%></div>
+        <footer><% include footer%></footer>
+                
                       
         <script src="RTCMultiConnection.js"></script>
         <script src="main.js"></script>
-        
+                
+        <script src="js/getHTMLMediaElement.js"></script>
+
         <script src="VideoBroadCasting.js"></script>
         <script src="adapter.js"></script>
         <script src="ScreenSharing.js"></script>
         <script src="getScreenId.js"></script>
         <script src="/socket.io/socket.io.js"></script>   
      
+        <script src="angular.min.js"></script>
+        <script src="angular-route.min.js"></script>
+
+        <script>
+            document.getElementById('StartVB').onclick = function() {    
+                // document.getElementById('open-room').disabled = true;
+                connection.open('VBCasting', function() {
+                    console.log("VBCasting");
+                });    
+            };
+        </script>            
+
+        <script>
+            document.getElementById('StartSS').onclick = function(){
+                connection_2.open('SSharing', function() {
+                    // showRoomURL(connection_2.sessionid);
+                    console.log(connection_2.sessionid);       
+                });
+            };
+        </script>                                          
+        
     </body>
 </html>

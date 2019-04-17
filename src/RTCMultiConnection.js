@@ -4312,7 +4312,7 @@ var RTCMultiConnection = function(roomid, forceOptions) {
                     extra: connection.peers[remoteUserId] ? connection.peers[remoteUserId].extra : {},
                     mediaElement: mediaElement,
                     streamid: stream.streamid
-                };
+                };             
 
                 setMuteHandlers(connection, connection.streamEvents[stream.streamid]);
 

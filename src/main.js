@@ -41,6 +41,3 @@ connection_3.sdpConstraints.mandatory = {
 
 
 
-// AngularJS Module
-var mainGUI = angular.module("mainGUI",['ngRoute']);
-

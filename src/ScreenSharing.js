@@ -1,10 +1,42 @@
               
 connection_2.socketMessageEvent = 'screen-sharing-demo';
 
-connection_2.videosContainer = document.getElementById('screens-container');
-connection_2.onstream = function(event) {
-    connection_2.videosContainer.appendChild(event.mediaElement);
+connection_2.videosContainer = document.getElementById('screensharing');
+
+
+connection_2.onstream = function(event) {    
+    
+    var video = document.createElement('video');
+
+    try {
+        video.setAttributeNode(document.createAttribute('autoplay'));
+        video.setAttributeNode(document.createAttribute('playsinline'));
+        // video.setAttributeNode(document.createAttribute('controls'));
+    } catch (e) {
+        video.setAttribute('autoplay', true);
+        video.setAttribute('playsinline', true);        
+    }
+    video.srcObject = event.stream;
+
+    var width = parseInt(connection_2.videosContainer.clientWidth);    
+    var mediaElement = getHTMLMediaElement(video,{
+        buttons:['full-screen'],
+        width:width,        
+        showOnMouseEnter: false
+    })
+    
+    connection_2.videosContainer.appendChild(mediaElement);
+
+    setTimeout(function() {
+        mediaElement.media.play();
+    }, 5000);
+
+    mediaElement.id = event.streamid;
 };
+
+
+
+
 
 // Using getScreenId.js to capture screen from any domain
 // You do NOT need to deploy Chrome Extension YOUR-Self!!
