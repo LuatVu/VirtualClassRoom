@@ -1,0 +1,1 @@
+connection_2.streamEvents.selectAll() // lay ra =====> stream

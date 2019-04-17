@@ -25,12 +25,26 @@ app.use(express.static('node_modules/bootstrap/dist/js'));
 app.use(express.static('node_modules/jquery/dist'));
 app.use(express.static('node_modules/popper.js/dist/umd'));
 
+
+app.use(express.static('node_modules/angular'));
+app.use(express.static('node_modules/angular-route'));
+
+app.use(express.static('public'));
+
 app.use(express.static('views/'));
 
 app.use('/lti',require('./lti'));
 
 app.use('/homeTeacher',function(req, res, next){
     res.render('teacher/index');
+});
+
+app.use('/chatroomTeacher', function(req, res, next){
+    res.render('teacher/ConferenceRoom');
+});
+
+app.use('/chatroomStudent', function(req, res, next){
+    res.render('student/ConferenceRoom');
 });
 
 
