@@ -1,6 +1,6 @@
 connection_3.socketMessageEvent = 'video-conference-demo';
 
-connection_3.videosContainer = document.getElementById('videos-container');
+connection_3.videosContainer = document.getElementById('ConferenceRoom');
 connection_3.onstream = function(event) {
     var existing = document.getElementById(event.streamid);
     if(existing && existing.parentNode) {
@@ -17,34 +17,34 @@ connection_3.onstream = function(event) {
     try {
         video.setAttributeNode(document.createAttribute('autoplay'));
         video.setAttributeNode(document.createAttribute('playsinline'));
-        video.setAttributeNode(document.createAttribute('controls'));
+        // video.setAttributeNode(document.createAttribute('controls'));
     } catch (e) {
         video.setAttribute('autoplay', true);
         video.setAttribute('playsinline', true);
     }
 
-    if(event.type === 'local') {
-      video.volume = 0;
-      try {
-          video.setAttributeNode(document.createAttribute('muted'));
-      } catch (e) {
-          video.setAttribute('muted', false);
-      }
-    }
+    // if(event.type === 'local') {
+    //   video.volume = 0;
+    //   try {
+    //       video.setAttributeNode(document.createAttribute('muted'));
+    //   } catch (e) {
+    //       video.setAttribute('muted', false);
+    //   }
+    // }
     video.srcObject = event.stream;
 
     var width = parseInt(connection_3.videosContainer.clientWidth / 3) - 20;
-    // var mediaElement = getHTMLMediaElement(video, {
-    //     title: event.userid,
-    //     buttons: ['full-screen'],
-    //     width: width,
-    //     showOnMouseEnter: false
-    // });
+    var mediaElement = getHTMLMediaElement(video, {
+        title: event.userid,
+        buttons: ['full-screen'],
+        width: width,
+        showOnMouseEnter: false
+    });
 
-    // connection_3.videosContainer.appendChild(mediaElement);
-    connection_3.videosContainer.appendChild(video);
-    video.id = event.streamid;
+    connection_3.videosContainer.appendChild(mediaElement);
+    // connection_3.videosContainer.appendChild(video);
     
+    mediaElement.id = event.streamid;
 
 
     // to keep room-id in cache

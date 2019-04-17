@@ -25,8 +25,8 @@
         <script src="/socket.io/socket.io.js"></script>
 
         <script>
-            document.getElementById('StartRecording').onclick = function(){
-                connection_3.open('VConferencing', function(){
+            document.getElementById('Notifi').onclick = function(){
+                connection_3.join('VConferencing', function() {
                     console.log(connection_3.sessionid);
                 });
             }
