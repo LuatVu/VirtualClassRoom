@@ -39,6 +39,10 @@ app.use('/homeTeacher',function(req, res, next){
     res.render('teacher/index');
 });
 
+app.use('/homeStudent',function(req, res, next){
+    res.render('student/index');
+});
+
 app.use('/chatroomTeacher', function(req, res, next){
     res.render('teacher/ConferenceRoom');
 });
