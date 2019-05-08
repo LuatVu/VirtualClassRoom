@@ -1,10 +1,20 @@
 <!Doctype html>
 <html>
     <head>
+<<<<<<< HEAD
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="bootstrap.min.css">   
         <link rel="stylesheet" href="css/getHTMLMediaElement.css">    
+=======
+        <link rel="stylesheet" href="bootstrap.min.css">   
+        <link rel="stylesheet" href="css/getHTMLMediaElement.css">             
+    </head>
+    <body>        
+        <header><% include header%></header>
+        <div><% include home%></div>
+        <footer><% include footer%></footer>
+>>>>>>> Temp
         
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -29,11 +39,17 @@
         <script src="getScreenId.js"></script>
         <script src="/socket.io/socket.io.js"></script>   
      
+<<<<<<< HEAD
         <script src="angular.min.js"></script>
         <script src="angular-route.min.js"></script>
 
         <script>
             document.getElementById('StartVB').onclick = function() {    
+=======
+
+        <script>
+            document.getElementById('StartRecording').onclick = function() {    
+>>>>>>> Temp
                 // document.getElementById('open-room').disabled = true;
                 connection.open('VBCasting', function() {
                     console.log("VBCasting");
@@ -42,18 +58,26 @@
         </script>            
 
         <script>
+<<<<<<< HEAD
             document.getElementById('StartSS').onclick = function(){
                 connection_2.openOrJoin('SSharing', function() {
+=======
+            document.getElementById('ScreenSharing').onclick = function(){
+                connection_2.open('SSharing', function() {
+>>>>>>> Temp
                     // showRoomURL(connection_2.sessionid);
                     console.log(connection_2.sessionid);       
                 });
             };
+<<<<<<< HEAD
         </script>                                       
         
         <script>
             document.getElementById('DisCon').onclick = function(){
                 connection.closeSocket();
             }
+=======
+>>>>>>> Temp
         </script>
         
     </body>

@@ -35,7 +35,11 @@ connection.onstream = function(event) {
     video.srcObject = event.stream;
 
     var width = parseInt(connection.videosContainer.clientWidth );
+<<<<<<< HEAD
     var height = parseInt(connection.videosContainer.clientHeight );
+=======
+    var height = parseInt(connection.videosContainer.clientHeight )-7;
+>>>>>>> Temp
     
     var mediaElement = getHTMLMediaElement(video, {
         title: event.userid,
@@ -44,7 +48,11 @@ connection.onstream = function(event) {
         height:height,
         showOnMouseEnter: false
     });
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> Temp
     connection.videosContainer.appendChild(mediaElement);
     // connection.videosContainer.appendChild(video);
     setTimeout(function() {

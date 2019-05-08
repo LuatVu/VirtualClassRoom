@@ -5,7 +5,11 @@
         <link rel="stylesheet" href="css/getHTMLMediaElement.css">        
     </head>
     <body>
+<<<<<<< HEAD
         <header><% include header2%></header>
+=======
+        <header><% include header%></header>
+>>>>>>> Temp
         <div id="ConferenceRoom" class="container-fluid bg-light" style="height:545px;">
 
         </div>
@@ -25,8 +29,13 @@
         <script src="/socket.io/socket.io.js"></script>
 
         <script>
+<<<<<<< HEAD
             document.getElementById('StartVB').onclick = function(){
                 connection_3.join('VConferencing', function(){
+=======
+            document.getElementById('Notifi').onclick = function(){
+                connection_3.join('VConferencing', function() {
+>>>>>>> Temp
                     console.log(connection_3.sessionid);
                 });
             }
