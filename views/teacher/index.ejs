@@ -6,13 +6,16 @@
         <link rel="stylesheet" href="bootstrap.min.css">   
         <link rel="stylesheet" href="css/getHTMLMediaElement.css">    
         
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous">
 
-        <script src="jquery.min.js"></script>                
+        <script src="jquery.min.js"></script>
         <script src="popper.min.js"></script>
-        <script src="bootstrap.min.js"></script>                        
+        <script src="bootstrap.min.js"></script>
     </head>
-    <body>        
+    <body>
         <header><% include header%></header>
         <div><% include home%></div>
         <footer><% include footer%></footer>
@@ -33,28 +36,41 @@
         <script src="angular-route.min.js"></script>
 
         <script>
-            document.getElementById('StartVB').onclick = function() {    
-                // document.getElementById('open-room').disabled = true;
+            document.getElementById('StartVB').onclick = function() {                    
                 connection.open('VBCasting', function() {
                     console.log("VBCasting");
                 });    
+                document.getElementById('StartVB').style.display = 'none';
+                document.getElementById('DisCon').style.display = 'block';
             };
         </script>            
 
         <script>
             document.getElementById('StartSS').onclick = function(){
-                connection_2.openOrJoin('SSharing', function() {
-                    // showRoomURL(connection_2.sessionid);
+                connection_2.openOrJoin('SSharing', function() {                    
                     console.log(connection_2.sessionid);       
                 });
+                document.getElementById('StopSS').style.display = 'block';
+                document.getElementById('StartSS').style.display = 'none';
             };
         </script>                                       
         
         <script>
             document.getElementById('DisCon').onclick = function(){
-                connection.closeSocket();
+                document.getElementById('StartVB').style.display = 'block';
+                document.getElementById('DisCon').style.display = 'none';
+                connection.closeSocket();                
             }
         </script>
         
+        <script>
+            document.getElementById('StopSS').onclick = function(){
+                document.getElementById('StartSS').style.display = 'block';
+                document.getElementById('StopSS').style.display = 'none';
+                connection_2.closeSocket();
+
+            }
+        </script>
+
     </body>
 </html>

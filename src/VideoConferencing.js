@@ -17,20 +17,13 @@ connection_3.onstream = function(event) {
     try {
         video.setAttributeNode(document.createAttribute('autoplay'));
         video.setAttributeNode(document.createAttribute('playsinline'));
-        // video.setAttributeNode(document.createAttribute('controls'));
+        
     } catch (e) {
         video.setAttribute('autoplay', true);
         video.setAttribute('playsinline', true);
     }
 
-    // if(event.type === 'local') {
-    //   video.volume = 0;
-    //   try {
-    //       video.setAttributeNode(document.createAttribute('muted'));
-    //   } catch (e) {
-    //       video.setAttribute('muted', false);
-    //   }
-    // }
+
     video.srcObject = event.stream;
 
     var width = parseInt(connection_3.videosContainer.clientWidth / 3) - 20;
@@ -42,41 +35,8 @@ connection_3.onstream = function(event) {
     });
 
     connection_3.videosContainer.appendChild(mediaElement);
-    // connection_3.videosContainer.appendChild(video);
     
     mediaElement.id = event.streamid;
-
-
-    // to keep room-id in cache
-    // localStorage.setItem(connection_3.socketMessageEvent, connection_3.sessionid);
-
-    // chkRecordConference.parentNode.style.display = 'none';
-
-    // if(chkRecordConference.checked === true) {
-    //   btnStopRecording.style.display = 'inline-block';
-    //   recordingStatus.style.display = 'inline-block';
-
-    //   var recorder = connection_3.recorder;
-    //   if(!recorder) {
-    //     recorder = RecordRTC([event.stream], {
-    //       type: 'video'
-    //     });
-    //     recorder.startRecording();
-    //     connection_3.recorder = recorder;
-    //   }
-    //   else {
-    //     recorder.getInternalRecorder().addStreams([event.stream]);
-    //   }
-
-    //   if(!connection_3.recorder.streams) {
-    //     connection_3.recorder.streams = [];
-    //   }
-
-    //   connection_3.recorder.streams.push(event.stream);
-    //   recordingStatus.innerHTML = 'Recording ' + connection_3.recorder.streams.length + ' streams';
-    // }
-
-
 
     if(event.type === 'local') {
       connection_3.socket.on('disconnect', function() {
@@ -87,27 +47,12 @@ connection_3.onstream = function(event) {
     }
 };
 
-// var recordingStatus = document.getElementById('recording-status');
-// var chkRecordConference = document.getElementById('record-entire-conference');
-// var btnStopRecording = document.getElementById('btn-stop-recording');
-// btnStopRecording.onclick = function() {
-//   var recorder = connection_3.recorder;
-//   if(!recorder) return alert('No recorder found.');
-//   recorder.stopRecording(function() {
-//     var blob = recorder.getBlob();
-//     invokeSaveAsDialog(blob);
-
-//     connection_3.recorder = null;
-//     btnStopRecording.style.display = 'none';
-//     recordingStatus.style.display = 'none';
-//     chkRecordConference.parentNode.style.display = 'inline-block';
-//   });
-// };
 
 connection_3.onstreamended = function(event) {
     var mediaElement = document.getElementById(event.streamid);
     if (mediaElement) {
         mediaElement.parentNode.removeChild(mediaElement);
+        alert('Video conferencing is ended');
     }
 };
 
@@ -127,7 +72,5 @@ connection_3.onMediaError = function(e) {
     }
 };
 
-// ..................................
-// ALL below scripts are redundant!!!
-// ..................................
+
 

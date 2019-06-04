@@ -35,7 +35,13 @@ connection_2.onstream = function(event) {
 };
 
 
-
+connection_2.onstreamended = function(event) {
+    var mediaElement = document.getElementById(event.streamid);
+    if (mediaElement) {
+        mediaElement.parentNode.removeChild(mediaElement);
+        alert('Screen sharing is ended');
+    }
+};
 
 
 // Using getScreenId.js to capture screen from any domain
